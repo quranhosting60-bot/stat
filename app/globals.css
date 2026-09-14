@@ -1,0 +1,54 @@
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7fafb;
+  color: #0e1720;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #17abdd;
+  color: #ffffff;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #17abdd;
+  outline-offset: 3px;
+}
+
+/* halftone dot field used as a quiet textured backdrop */
+.halftone {
+  background-image: radial-gradient(#0b2a40 1px, transparent 1.4px);
+  background-size: 14px 14px;
+}
+
+.halftone-cyan {
+  background-image: radial-gradient(#17abdd 1px, transparent 1.4px);
+  background-size: 14px 14px;
+}
