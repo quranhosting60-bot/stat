@@ -16,6 +16,7 @@ export interface CartItem {
   unitPrice: number;
   quantity: number;
   optionsLabel: string;
+  artworkFileName?: string;
 }
 
 interface CartContextValue {

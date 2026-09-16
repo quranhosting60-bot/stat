@@ -1,12 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/data/products";
 import { categories } from "@/data/categories";
 import CornerBadge from "./CornerBadge";
+import { useLang, localize } from "@/lib/i18n";
 
 export default function ProductCard({ product }: { product: Product }) {
   const category = categories.find((c) => c.slug === product.category)!;
   const photo = product.photo ?? category.photo;
+  const { lang } = useLang();
 
   return (
     <Link
@@ -15,6 +19,11 @@ export default function ProductCard({ product }: { product: Product }) {
     >
       <div className="relative h-44 overflow-hidden bg-mist">
         <CornerBadge />
+        {(product.newArrival || product.premium) && (
+          <span className="absolute left-3 top-3 z-10 rounded-pill bg-navy/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
+            {product.newArrival ? (lang === "ar" ? "جديد" : "New") : lang === "ar" ? "مميز" : "Premium"}
+          </span>
+        )}
         <Image
           src={photo}
           alt={product.name}
@@ -24,9 +33,13 @@ export default function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <p className="text-xs font-medium uppercase tracking-wide text-cyan-deep">{category.name}</p>
-        <h3 className="mt-1.5 font-display text-base font-semibold text-navy">{product.name}</h3>
-        <p className="mt-1.5 flex-1 text-sm text-navy/60">{product.shortDescription}</p>
+        <p className="text-xs font-medium uppercase tracking-wide text-cyan-deep">
+          {localize(category, "name", lang)}
+        </p>
+        <h3 className="mt-1.5 font-display text-base font-semibold text-navy">
+          {localize(product, "name", lang)}
+        </h3>
+        <p className="mt-1.5 flex-1 text-sm text-navy/60">{localize(product, "shortDescription", lang)}</p>
         <div className="mt-4 flex items-baseline justify-between border-t border-line pt-4">
           <span className="font-display text-lg font-semibold text-navy">
             SAR {product.basePrice.toLocaleString()}

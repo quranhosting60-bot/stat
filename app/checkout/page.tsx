@@ -45,6 +45,7 @@ export default function CheckoutPage() {
         quantity: i.quantity,
         options: i.optionsLabel,
         lineTotal: i.unitPrice * i.quantity,
+        artworkFileName: i.artworkFileName,
       })),
       total: subtotal,
     });
@@ -127,6 +128,9 @@ export default function CheckoutPage() {
                 <div>
                   <p className="font-medium text-navy">{item.name} × {item.quantity}</p>
                   {item.optionsLabel && <p className="text-xs text-navy/50">{item.optionsLabel}</p>}
+                  {item.artworkFileName && (
+                    <p className="text-xs text-cyan-deep">📎 {item.artworkFileName}</p>
+                  )}
                 </div>
                 <span className="text-navy/70">
                   SAR {(item.unitPrice * item.quantity).toLocaleString(undefined, { maximumFractionDigits: 2 })}

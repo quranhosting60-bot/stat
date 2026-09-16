@@ -7,6 +7,7 @@ export interface OrderLine {
   quantity: number;
   options: string;
   lineTotal: number;
+  artworkFileName?: string;
 }
 
 export function buildWhatsAppOrderLink(params: {
@@ -22,7 +23,8 @@ export function buildWhatsAppOrderLink(params: {
   const itemsText = lines
     .map(
       (l, i) =>
-        `${i + 1}. ${l.name}${l.options ? ` (${l.options})` : ""} × ${l.quantity} — SAR ${l.lineTotal.toFixed(2)}`
+        `${i + 1}. ${l.name}${l.options ? ` (${l.options})` : ""} × ${l.quantity} — SAR ${l.lineTotal.toFixed(2)}` +
+        (l.artworkFileName ? ` [artwork: ${l.artworkFileName} — will attach separately]` : "")
     )
     .join("\n");
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Product } from "@/data/products";
 import { useCart } from "@/lib/cart-context";
@@ -13,6 +13,32 @@ export default function AddToCartForm({ product }: { product: Product }) {
   );
   const [quantity, setQuantity] = useState(product.minQty);
   const [added, setAdded] = useState(false);
+  const [artworkFile, setArtworkFile] = useState<File | null>(null);
+  const [artworkError, setArtworkError] = useState<string | null>(null);
+
+  const ALLOWED_TYPES = [".pdf", ".ai", ".eps", ".jpg", ".jpeg", ".png", ".psd"];
+  const MAX_SIZE_MB = 25;
+
+  function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    setArtworkError(null);
+    if (!file) {
+      setArtworkFile(null);
+      return;
+    }
+    const ext = "." + file.name.split(".").pop()?.toLowerCase();
+    if (!ALLOWED_TYPES.includes(ext)) {
+      setArtworkError(`Unsupported file type. Use: ${ALLOWED_TYPES.join(", ")}`);
+      setArtworkFile(null);
+      return;
+    }
+    if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+      setArtworkError(`File is too large. Max ${MAX_SIZE_MB}MB.`);
+      setArtworkFile(null);
+      return;
+    }
+    setArtworkFile(file);
+  }
 
   const unitPrice = useMemo(() => {
     let price = product.basePrice;
@@ -34,6 +60,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
       unitPrice,
       quantity,
       optionsLabel,
+      artworkFileName: artworkFile?.name,
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 1800);
@@ -71,6 +98,29 @@ export default function AddToCartForm({ product }: { product: Product }) {
           </div>
         </div>
       ))}
+
+      <div className="mb-6">
+        <p className="mb-2 text-sm font-medium text-navy">Artwork (optional)</p>
+        <label className="focus-ring flex cursor-pointer items-center justify-between gap-3 rounded-2xl border border-dashed border-line bg-mist/50 px-4 py-3 text-sm text-navy/60 transition-colors hover:bg-mist">
+          <span className="truncate">
+            {artworkFile ? artworkFile.name : "Upload PDF, AI, EPS, JPG, PNG or PSD (max 25MB)"}
+          </span>
+          <span className="flex-shrink-0 rounded-pill border border-line bg-white px-3 py-1 text-xs font-medium text-navy">
+            Browse
+          </span>
+          <input
+            type="file"
+            accept=".pdf,.ai,.eps,.jpg,.jpeg,.png,.psd"
+            onChange={handleFileChange}
+            className="sr-only"
+          />
+        </label>
+        {artworkError && <p className="mt-1.5 text-xs text-red-500">{artworkError}</p>}
+        <p className="mt-1.5 text-xs text-navy/40">
+          For best print quality, use CMYK colour mode at 300 DPI. We'll ask you to also attach
+          the file in WhatsApp when confirming your order.
+        </p>
+      </div>
 
       <div className="mb-6">
         <p className="mb-2 text-sm font-medium text-navy">Quantity</p>

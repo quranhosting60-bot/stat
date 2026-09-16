@@ -4,6 +4,9 @@
 @import "@fontsource/inter/400.css";
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
+@import "@fontsource/tajawal/400.css";
+@import "@fontsource/tajawal/500.css";
+@import "@fontsource/tajawal/700.css";
 
 @tailwind base;
 @tailwind components;
@@ -12,6 +15,11 @@
 :root {
   --font-display: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
+}
+
+html[dir="rtl"] {
+  --font-display: "Tajawal", sans-serif;
+  --font-body: "Tajawal", sans-serif;
 }
 
 * {
