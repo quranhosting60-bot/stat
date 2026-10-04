@@ -98,7 +98,7 @@ export default function Chatbot() {
     <>
       <motion.button
         onClick={() => setOpen((o) => !o)}
-        className="focus-ring fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-pill bg-cyan text-white shadow-[0_8px_24px_rgba(23,171,221,0.45)]"
+        className="focus-ring fixed bottom-20 right-4 z-30 flex h-12 w-12 sm:bottom-24 sm:right-6 sm:z-50 sm:h-14 sm:w-14 items-center justify-center rounded-pill bg-cyan text-white shadow-[0_8px_24px_rgba(23,171,221,0.45)]"
         aria-label={open ? "Close chat assistant" : "Open chat assistant"}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}

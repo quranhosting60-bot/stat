@@ -53,7 +53,7 @@ export default function PromoSlider() {
   const slide = slides[index];
 
   return (
-    <section className="mx-auto max-w-content px-6 pt-8">
+    <section className="mx-auto max-w-content px-4 pt-5 sm:px-6 sm:pt-8">
       <div className="relative h-40 overflow-hidden rounded-3xl sm:h-48">
         <AnimatePresence mode="wait">
           <motion.div
@@ -62,7 +62,7 @@ export default function PromoSlider() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -24 }}
             transition={{ duration: 0.4 }}
-            className={`absolute inset-0 flex items-center bg-gradient-to-r ${slide.bg} px-8 sm:px-12`}
+            className={`absolute inset-0 flex items-center bg-gradient-to-r ${slide.bg} px-6 sm:px-12`}
           >
             <div>
               <h3 className="font-display text-xl font-semibold text-white sm:text-2xl">

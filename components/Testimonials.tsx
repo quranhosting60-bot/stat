@@ -23,8 +23,8 @@ const quotes = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-mist py-20">
-      <div className="mx-auto max-w-content px-6">
+    <section className="bg-mist py-10 sm:py-20">
+      <div className="mx-auto max-w-content px-4 sm:px-6">
         <Reveal>
           <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
             What clients say after the second order

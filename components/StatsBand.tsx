@@ -26,7 +26,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   }, [inView, value]);
 
   return (
-    <span ref={ref} className="font-display text-4xl font-semibold text-white sm:text-5xl">
+    <span ref={ref} className="font-display text-3xl font-semibold text-white sm:text-5xl">
       {display.toLocaleString()}
       {suffix}
     </span>
@@ -35,8 +35,8 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export default function StatsBand() {
   return (
-    <section className="bg-navy py-16">
-      <div className="mx-auto grid max-w-content grid-cols-2 gap-8 px-6 sm:grid-cols-4">
+    <section className="bg-navy py-10 sm:py-16">
+      <div className="mx-auto grid max-w-content grid-cols-2 gap-6 px-5 sm:grid-cols-4 sm:gap-8 sm:px-6">
         {stats.map((s) => (
           <motion.div
             key={s.label}
@@ -44,7 +44,7 @@ export default function StatsBand() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5 }}
-            className="text-center sm:text-left"
+            className="text-left"
           >
             <Counter value={s.value} suffix={s.suffix} />
             <p className="mt-2 text-sm text-white/60">{s.label}</p>

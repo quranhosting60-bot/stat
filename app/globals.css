@@ -32,7 +32,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *:not(.marquee-row) {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -66,15 +66,26 @@ body {
   animation-name: marquee-scroll;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  will-change: transform;
 }
 
 .marquee-row:hover,
+.marquee-row:active,
 .marquee-row:focus-within {
   animation-play-state: paused;
 }
 
 .marquee-row.marquee-reverse {
   animation-direction: reverse;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* premium (luxe) product pages */
@@ -106,17 +117,7 @@ body {
 .hero-kenburns { animation: kenburns 24s ease-in-out infinite alternate; }
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
 
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .marquee-row,
   .foil-text,
   .foil-sheen,
   .hero-kenburns {

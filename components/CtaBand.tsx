@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export default function CtaBand() {
   return (
-    <section className="mx-auto max-w-content px-6 pb-20">
+    <section className="mx-auto max-w-content px-4 pb-10 sm:px-6 sm:pb-20">
       <Reveal className="halftone relative overflow-hidden rounded-3xl bg-navy px-8 py-14 text-center sm:px-16">
         <div className="halftone absolute inset-0 opacity-[0.06]" />
         <div className="relative">

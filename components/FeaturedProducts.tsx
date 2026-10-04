@@ -16,8 +16,8 @@ export default function FeaturedProducts() {
     .filter(Boolean) as typeof products;
 
   return (
-    <section className="mx-auto max-w-content px-6 py-20">
-      <Reveal className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <section className="mx-auto max-w-content px-4 py-10 sm:px-6 sm:py-20">
+      <Reveal className="mb-6 flex sm:mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
             Most reordered
@@ -33,7 +33,7 @@ export default function FeaturedProducts() {
           View all products
         </Link>
       </Reveal>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
         {featured.map((p, i) => (
           <Reveal key={p.slug} delay={i * 0.07}>
             <ProductCard product={p} />

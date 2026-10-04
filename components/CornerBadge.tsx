@@ -1,7 +1,7 @@
 export default function CornerBadge({ dark = false }: { dark?: boolean }) {
   return (
     <span
-      className={`absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-pill transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${
+      className={`absolute right-3 top-3 flex h-8 w-8 sm:right-4 sm:top-4 sm:h-10 sm:w-10 items-center justify-center rounded-pill transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${
         dark ? "bg-white text-navy" : "bg-navy text-white"
       }`}
     >

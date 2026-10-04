@@ -47,7 +47,7 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-deep/80 to-transparent" />
       </div>
 
-      <div className="mx-auto max-w-content px-6 pb-24 pt-40 sm:pb-28 sm:pt-48">
+      <div className="mx-auto max-w-content px-5 pb-14 pt-32 sm:px-6 sm:pb-28 sm:pt-48">
         <div className="max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -59,7 +59,7 @@ export default function Hero() {
             Printing partner for Saudi businesses
           </motion.p>
 
-          <h1 className="mt-6 font-display text-[2.75rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3.8rem]">
+          <h1 className="mt-5 font-display text-[2.1rem] font-semibold leading-[1.1] tracking-tight text-white sm:text-[3.8rem]">
             {["Printing you", "can plan a", "launch around."].map((line, i) => (
               <span key={line} className="block overflow-hidden">
                 <motion.span
@@ -78,7 +78,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-6 max-w-md text-base leading-relaxed text-white/80 sm:text-lg"
+            className="mt-4 max-w-md text-sm sm:mt-6 sm:text-base leading-relaxed text-white/80 sm:text-lg"
           >
             Business cards to vehicle wraps, one shop handles the full spec sheet — clear pricing, real turnaround
             times, no surprises at pickup.
@@ -88,7 +88,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8"
           >
             <Link
               href="/contact"
@@ -108,7 +108,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.75 }}
-            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/15 pt-6"
+            className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/15 pt-6"
           >
             {trustPoints.map((point) => (
               <div key={point} className="flex items-center gap-2 text-sm text-white/75">
