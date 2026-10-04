@@ -3,27 +3,24 @@ import Reveal from "./Reveal";
 const steps = [
   {
     number: "01",
-    title: "Tell us what you need",
-    description:
-      "Pick a product, set the options and quantity, or send us a spec on WhatsApp if it's something custom.",
+    title: "Choose Your Product",
+    description: "Select the printing or branding product that fits your requirements.",
   },
   {
     number: "02",
-    title: "We send a fixed quote",
-    description:
-      "Pricing and turnaround confirmed before anything goes to print — no changes once you approve it.",
+    title: "Share Your Artwork",
+    description: "Upload your design, paste a download link, or send your artwork to our team for processing.",
   },
   {
     number: "03",
-    title: "You approve the artwork",
-    description:
-      "We send a proof for sign-off. Nothing runs on press until you've said yes to exactly what you'll get.",
+    title: "Confirm Your Order",
+    description: "Review your specifications, quantity, material and finishing options before production.",
   },
   {
     number: "04",
-    title: "Delivered or ready for pickup",
+    title: "We Print & Deliver",
     description:
-      "Collect from our Riyadh branch or have it delivered — tracked, and packed for transport.",
+      "Our production team handles your order with professional quality control before collection or delivery.",
   },
 ];
 
@@ -32,7 +29,7 @@ export default function ProcessSteps() {
     <section className="mx-auto max-w-content px-6 py-20">
       <Reveal>
         <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
-          From spec sheet to delivery
+          Simple. Fast. Professional.
         </h2>
       </Reveal>
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

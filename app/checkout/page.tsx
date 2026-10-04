@@ -46,6 +46,7 @@ export default function CheckoutPage() {
         options: i.optionsLabel,
         lineTotal: i.unitPrice * i.quantity,
         artworkFileName: i.artworkFileName,
+        artworkLink: i.artworkLink,
       })),
       total: subtotal,
     });
@@ -130,6 +131,9 @@ export default function CheckoutPage() {
                   {item.optionsLabel && <p className="text-xs text-navy/50">{item.optionsLabel}</p>}
                   {item.artworkFileName && (
                     <p className="text-xs text-cyan-deep">📎 {item.artworkFileName}</p>
+                  )}
+                  {item.artworkLink && (
+                    <p className="max-w-[260px] truncate text-xs text-cyan-deep">🔗 {item.artworkLink}</p>
                   )}
                 </div>
                 <span className="text-navy/70">

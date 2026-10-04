@@ -4,6 +4,7 @@ import CategoryGrid from "@/components/CategoryGrid";
 import HomeMerchandising from "@/components/HomeMerchandising";
 import ProcessSteps from "@/components/ProcessSteps";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import WhyUs from "@/components/WhyUs";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CtaBand from "@/components/CtaBand";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <CategoryGrid />
       <ProcessSteps />
       <FeaturedProducts />
+      <WhyUs />
       <Testimonials />
       <FAQ />
       <CtaBand />

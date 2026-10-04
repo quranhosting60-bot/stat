@@ -18,7 +18,7 @@ export default function HomeMerchandising() {
       <PromoSlider />
       <OfferBanner />
       <ProductRow title={lang === "ar" ? "الأكثر بحثاً" : "Most Searched"} products={mostSearched} />
-      <ProductRow title={lang === "ar" ? "وصل حديثاً" : "New Arrivals"} products={newArrivals} />
+      <ProductRow title={lang === "ar" ? "وصل حديثاً" : "New Arrivals"} products={newArrivals} reverse />
       <ProductRow title={lang === "ar" ? "منتجات مميزة" : "Premium Products"} products={premium} />
     </>
   );

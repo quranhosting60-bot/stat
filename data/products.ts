@@ -1,8 +1,19 @@
 import { CategorySlug } from "./categories";
+import { specProducts } from "./spec-products";
 
 export interface ProductOption {
   name: string;
   choices: { label: string; priceModifier: number }[];
+  /** Heading shown above a group of options, e.g. "Cover (Part 1)". Also keeps same-named options apart. */
+  section?: string;
+  /** buttons (default for short lists), select (default for long lists) or multi (tick any). */
+  display?: "buttons" | "select" | "multi";
+  defaultChoice?: string;
+  hint?: string;
+  /** For page-count selects: show "= N sheets" (pages / divisor). */
+  sheetsDivisor?: number;
+  /** Only show this option when another option in the same section has/hasn't a value. */
+  showIf?: { option: string; equals?: string; notEquals?: string };
 }
 
 export interface Product {
@@ -26,10 +37,15 @@ export interface Product {
   premium?: boolean;
   customSizeInput?: boolean;
   maxUploadMB?: number;
+  /** Quantity increment for the +/- buttons (defaults to minQty). */
+  qtyStep?: number;
+  maxQty?: number;
+  /** Dark / gold presentation for premium-range products. */
+  luxe?: boolean;
   displayOrder?: number;
 }
 
-export const products: Product[] = [
+const baseProducts: Product[] = [
   // Business & Stationery
   {
     slug: "premium-business-cards",
@@ -2141,6 +2157,17 @@ export const products: Product[] = [
     ],
   },
 ];
+
+// Spec-sheet products (client option lists) replace same-slug entries in place and add new ones.
+const specBySlug = new Map(specProducts.map((p) => [p.slug, p]));
+const merged: Product[] = baseProducts.map((p) => {
+  const o = specBySlug.get(p.slug);
+  return o ? ({ ...p, ...o } as Product) : p;
+});
+for (const o of specProducts) {
+  if (!baseProducts.some((p) => p.slug === o.slug)) merged.push(o as Product);
+}
+export const products: Product[] = merged;
 
 export function getProduct(slug: string) {
   return products.find((p) => p.slug === slug);

@@ -52,7 +52,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5 text-sm text-white/80">
               <li>Omar Bin Al Khattab Rd, Al Malaz, Riyadh</li>
               <li>+966 55 074 6600</li>
-              <li>sales@smartprintsa.com</li>
+              <li><a href="mailto:info@smartprintsa.com" className="focus-ring hover:text-cyan-soft">info@smartprintsa.com</a></li>
               <li>Sun–Thu, 9am–6pm</li>
             </ul>
           </div>

@@ -8,7 +8,7 @@ import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 function QuoteFormInner() {
   const params = useSearchParams();
   const item = params.get("item") ?? "";
-  const [form, setForm] = useState({ name: "", phone: "", details: "" });
+  const [form, setForm] = useState({ name: "", phone: "", details: "", link: "" });
   const [sent, setSent] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
@@ -20,7 +20,10 @@ function QuoteFormInner() {
       `Name: ${form.name}`,
       `Phone: ${form.phone}`,
       `Details: ${form.details}`,
-    ].join("\n");
+      form.link ? `Artwork / reference link: ${form.link}` : "",
+    ]
+      .filter((l) => l !== "")
+      .join("\n");
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
     setSent(true);
   }
@@ -79,6 +82,20 @@ function QuoteFormInner() {
                 onChange={(e) => setForm((f) => ({ ...f, details: e.target.value }))}
                 className="focus-ring w-full rounded-2xl border border-line px-4 py-3 text-sm"
               />
+            </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-navy" htmlFor="q-link">
+                Artwork or reference link <span className="text-xs font-normal text-navy/40">(optional)</span>
+              </label>
+              <input
+                id="q-link"
+                type="url"
+                placeholder="Google Drive, Dropbox, WeTransfer…"
+                value={form.link}
+                onChange={(e) => setForm((f) => ({ ...f, link: e.target.value }))}
+                className="focus-ring w-full rounded-2xl border border-line px-4 py-3 text-sm"
+              />
+              <p className="mt-1.5 text-xs text-navy/40">Files up to 1GB can be sent on WhatsApp after you submit.</p>
             </div>
             <button
               type="submit"

@@ -9,6 +9,14 @@ import { useCart } from "@/lib/cart-context";
 import { categories } from "@/data/categories";
 import { megaMenuTabs } from "@/lib/megamenu";
 import { thumbOf } from "@/lib/images";
+import { collections } from "@/data/collections";
+
+const standaloneCollections = new Set(collections.filter((c) => !c.categorySlug).map((c) => c.slug));
+function viewAllHref(tab: { slug: string; categorySlug?: string }) {
+  if (tab.categorySlug) return `/categories/${tab.categorySlug}`;
+  if (standaloneCollections.has(tab.slug)) return `/collections/${tab.slug}`;
+  return null;
+}
 import { useLang, localize } from "@/lib/i18n";
 
 const secondaryLinks = [
@@ -122,9 +130,9 @@ export default function Nav() {
                           <div className="relative h-[170px] overflow-hidden rounded-2xl bg-mist">
                             <Image src={thumbOf(tab.image)} alt={tab.label} fill sizes="170px" className="object-cover" />
                           </div>
-                          {tab.categorySlug && (
+                          {viewAllHref(tab) && (
                             <Link
-                              href={`/categories/${tab.categorySlug}`}
+                              href={viewAllHref(tab)!}
                               onClick={() => setMegaOpen(false)}
                               className="focus-ring rounded-pill bg-navy px-4 py-2 text-center text-xs font-semibold text-white transition-colors hover:bg-navy-deep"
                             >

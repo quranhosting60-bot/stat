@@ -17,6 +17,7 @@ export interface CartItem {
   quantity: number;
   optionsLabel: string;
   artworkFileName?: string;
+  artworkLink?: string;
 }
 
 interface CartContextValue {

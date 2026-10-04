@@ -1,27 +1,65 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const trustPoints = ["7 product categories", "90+ products", "Delivery across Saudi Arabia"];
+const trustPoints = ["7 product categories", "100+ products", "Delivery across Saudi Arabia"];
 
+/**
+ * Hero with a full-bleed background video.
+ * Drop the client's clip at public/videos/hero.mp4 (and optionally hero.webm).
+ * Until it loads — or if it is missing — a slowly zooming photo is shown instead.
+ */
 export default function Hero() {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
-    <section className="mx-auto max-w-content px-6 pb-16 pt-14 sm:pt-20">
-      <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-        <div>
+    <section className="relative isolate -mt-[78px] overflow-hidden rounded-b-[2.5rem] bg-navy-deep">
+      <div className="absolute inset-0 -z-10">
+        <div className="hero-kenburns absolute inset-0">
+          <Image
+            src="/images/products/standee-cutouts.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
+        <video
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 motion-reduce:hidden ${
+            videoReady ? "opacity-100" : "opacity-0"
+          }`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          onLoadedData={() => setVideoReady(true)}
+        >
+          <source src="/videos/hero.webm" type="video/webm" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/75 to-navy-deep/25" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-deep/80 to-transparent" />
+      </div>
+
+      <div className="mx-auto max-w-content px-6 pb-24 pt-40 sm:pb-28 sm:pt-48">
+        <div className="max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-pill border border-line bg-white px-4 py-1.5 text-sm text-navy/70"
+            className="inline-flex items-center gap-2 rounded-pill border border-white/20 bg-white/10 px-4 py-1.5 text-sm text-white/85 backdrop-blur"
           >
             <span className="h-1.5 w-1.5 rounded-pill bg-cyan" />
             Printing partner for Saudi businesses
           </motion.p>
 
-          <h1 className="mt-6 font-display text-[2.75rem] font-semibold leading-[1.08] tracking-tight text-navy sm:text-[3.4rem]">
+          <h1 className="mt-6 font-display text-[2.75rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3.8rem]">
             {["Printing you", "can plan a", "launch around."].map((line, i) => (
               <span key={line} className="block overflow-hidden">
                 <motion.span
@@ -40,10 +78,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-6 max-w-md text-base leading-relaxed text-navy/70 sm:text-lg"
+            className="mt-6 max-w-md text-base leading-relaxed text-white/80 sm:text-lg"
           >
-            Business cards to vehicle wraps, one shop handles the full spec sheet —
-            clear pricing, real turnaround times, no surprises at pickup.
+            Business cards to vehicle wraps, one shop handles the full spec sheet — clear pricing, real turnaround
+            times, no surprises at pickup.
           </motion.p>
 
           <motion.div
@@ -54,13 +92,13 @@ export default function Hero() {
           >
             <Link
               href="/contact"
-              className="focus-ring rounded-pill bg-cyan px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(23,171,221,0.3)] transition-all hover:-translate-y-0.5 hover:bg-cyan-deep hover:shadow-[0_14px_28px_rgba(23,171,221,0.38)]"
+              className="focus-ring rounded-pill bg-cyan px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(23,171,221,0.35)] transition-all hover:-translate-y-0.5 hover:bg-cyan-deep"
             >
               Request a quote
             </Link>
             <Link
               href="/products"
-              className="focus-ring rounded-pill border border-navy/15 px-6 py-3.5 text-sm font-semibold text-navy transition-colors hover:bg-mist"
+              className="focus-ring rounded-pill border border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               Browse all products
             </Link>
@@ -70,10 +108,10 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.75 }}
-            className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-line pt-6"
+            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/15 pt-6"
           >
             {trustPoints.map((point) => (
-              <div key={point} className="flex items-center gap-2 text-sm text-navy/60">
+              <div key={point} className="flex items-center gap-2 text-sm text-white/75">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#17ABDD" strokeWidth="2.5">
                   <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -82,35 +120,6 @@ export default function Hero() {
             ))}
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 16 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="relative"
-        >
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-line bg-white shadow-[0_30px_60px_rgba(11,42,64,0.16)]">
-            <Image
-              src="/images/products/standee-cutouts.webp"
-              alt="Smart Printing branded standees and displays"
-              fill
-              sizes="(min-width: 1024px) 45vw, 90vw"
-              className="object-cover"
-              priority
-            />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="absolute -bottom-6 -left-6 flex h-28 w-28 flex-col items-center justify-center rounded-pill border-4 border-[#f6f9fb] bg-navy text-white shadow-[0_16px_32px_rgba(11,42,64,0.25)] sm:h-32 sm:w-32"
-          >
-            <span className="font-display text-2xl font-semibold sm:text-3xl">7</span>
-            <span className="mt-0.5 px-3 text-center text-[10px] leading-tight text-white/70 sm:text-xs">
-              print categories
-            </span>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

@@ -5,6 +5,8 @@ import { categories, getCategory } from "@/data/categories";
 import { getProductsByCategory } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import Reveal from "@/components/Reveal";
+import CollectionBlurbs from "@/components/CollectionBlurbs";
+import { collectionsForCategory } from "@/data/collections";
 
 export function generateStaticParams() {
   return categories.map((c) => ({ slug: c.slug }));
@@ -25,6 +27,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
   const productList = getProductsByCategory(category.slug);
   const others = categories.filter((c) => c.slug !== category.slug);
+  const sections = collectionsForCategory(category.slug);
 
   return (
     <div className="mx-auto max-w-content px-6 py-14">
@@ -60,6 +63,18 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
           </Reveal>
         ))}
       </div>
+
+      {sections.map((c) => (
+        <div key={c.slug} className="mt-16">
+          <Reveal>
+            <h2 className="font-display text-2xl font-semibold text-navy">{sections.length > 1 ? c.title : "What we offer"}</h2>
+            {sections.length > 1 && <p className="mt-2 max-w-2xl text-sm text-navy/60">{c.intro}</p>}
+          </Reveal>
+          <div className="mt-5">
+            <CollectionBlurbs blurbs={c.blurbs} />
+          </div>
+        </div>
+      ))}
 
       <Reveal className="mt-16">
         <h2 className="font-display text-xl font-semibold text-navy">Other categories</h2>

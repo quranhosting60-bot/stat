@@ -5,20 +5,28 @@ import Reveal from "./Reveal";
 
 const faqs = [
   {
-    q: "How do I get an exact price for my order?",
-    a: "Choose a product, select the options and quantity you need, then add it to cart. Checkout sends the full spec straight to us on WhatsApp and we confirm final pricing before anything is printed.",
+    q: "How can I place an order?",
+    a: "Choose the product you need and contact our team with your required specifications, quantity and artwork. Our team will guide you through the next steps.",
   },
   {
-    q: "Can you match my existing brand colours?",
-    a: "Yes — send your logo and any brand guideline (Pantone or CMYK values) and we'll match them across every product, from business cards to vehicle wraps.",
+    q: "Can you print custom sizes?",
+    a: "Yes. We can produce many products in custom sizes depending on the material and production requirements.",
   },
   {
-    q: "Do you deliver outside Riyadh?",
-    a: "We deliver across Saudi Arabia through courier partners. Delivery time depends on the city and is confirmed with your quote.",
+    q: "Do you provide design services?",
+    a: "Yes. Our graphic design team can help with branding, artwork preparation, print-ready files, promotional designs and other creative requirements.",
   },
   {
-    q: "What if I need something that isn't listed?",
-    a: "Message us on WhatsApp with a description or reference image. Most custom print and packaging jobs can be quoted within a day.",
+    q: "Can you deliver my order?",
+    a: "Delivery options depend on your location, order size and product requirements. Contact our team to confirm available delivery options.",
+  },
+  {
+    q: "Can I order bulk quantities?",
+    a: "Yes. We handle both small and large-volume orders for businesses, events, restaurants, exhibitions and organisations.",
+  },
+  {
+    q: "Do you provide branding services?",
+    a: "Yes. We provide complete branding solutions including logo design, stationery, packaging, signage, promotional materials and large-format branding.",
   },
 ];
 

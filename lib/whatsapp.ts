@@ -1,7 +1,7 @@
 // Replace with the real business WhatsApp number (country code + digits, no + or spaces).
 // Example for Saudi Arabia: "966501234567"
 export const WHATSAPP_NUMBER = "966550746600";
-export const SALES_EMAIL = "sales@smartprintsa.com";
+export const SALES_EMAIL = "info@smartprintsa.com";
 export const CONTACT_PHONE = "+966 55 074 6600";
 
 export interface OrderLine {
@@ -10,6 +10,7 @@ export interface OrderLine {
   options: string;
   lineTotal: number;
   artworkFileName?: string;
+  artworkLink?: string;
 }
 
 export function buildWhatsAppOrderLink(params: {
@@ -26,7 +27,8 @@ export function buildWhatsAppOrderLink(params: {
     .map(
       (l, i) =>
         `${i + 1}. ${l.name}${l.options ? ` (${l.options})` : ""} × ${l.quantity} — SAR ${l.lineTotal.toFixed(2)}` +
-        (l.artworkFileName ? ` [artwork: ${l.artworkFileName} — will attach separately]` : "")
+        (l.artworkFileName ? ` [artwork file: ${l.artworkFileName} — will attach separately]` : "") +
+        (l.artworkLink ? ` [artwork link: ${l.artworkLink}]` : "")
     )
     .join("\n");
 

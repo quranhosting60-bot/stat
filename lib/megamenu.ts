@@ -34,11 +34,10 @@ export const megaMenuTabs: MenuTab[] = [
       {
         heading: "Business Cards printing",
         items: [
-          product("Standard Cards", "premium-business-cards"),
+          product("Standard Cards", "standard-business-cards"),
           product("Premium Cards", "premium-business-cards"),
-          quote("Special Finishes"),
+          product("Foil Finishes (Gold / Silver / Multi)", "premium-business-cards"),
           quote("NFC Cards"),
-          quote("Special offers"),
           quote("Smooth finish"),
           quote("Textured finish"),
           quote("Specialty textured"),
@@ -47,22 +46,14 @@ export const megaMenuTabs: MenuTab[] = [
       },
       {
         heading: "Letterheads",
-        items: [
-          product("Standard letterhead", "corporate-letterhead"),
-          quote("Textured Finish LH"),
-          quote("Smooth Finish LH"),
-          quote("Specialty Textured LH"),
-          quote("Special offers LH"),
-          quote("Recycled LH"),
-        ],
+        items: [product("Letterheads", "corporate-letterhead")],
       },
       { heading: "NFC Business Cards", items: [quote("NFC Business Cards")] },
       {
         heading: "Folders",
         items: [
           product("Standard", "presentation-folders"),
-          product("Premium", "presentation-folders"),
-          quote("Special offers"),
+          product("Premium", "premium-presentation-folders"),
         ],
       },
       {
@@ -70,16 +61,26 @@ export const megaMenuTabs: MenuTab[] = [
         items: [
           product("Standard Envelopes", "branded-envelopes"),
           product("Window Envelopes", "window-envelopes"),
-          quote("Textured finish"),
-          quote("Smooth finish"),
         ],
       },
       {
         heading: "Certificates",
-        items: [quote("Presentation Accessories"), quote("Standard"), quote("Premium")],
+        items: [
+          quote("Presentation Accessories"),
+          product("Standard", "certificates-standard"),
+          product("Premium", "certificates-premium"),
+        ],
       },
-      { heading: "Invitations", items: [quote("Standard"), quote("Premium")] },
-      { heading: "Invoices & Vouchers", items: [product("Carbonless Invoice Books", "ncr-invoice-books")] },
+      { heading: "Invitations", items: [product("Standard (Digital)", "invitation-cards-standard"), quote("Premium")] },
+      {
+        heading: "Invoices & Vouchers",
+        items: [
+          product("A4 Invoice Books", "ncr-invoice-books"),
+          product("A5 Payment Voucher Books", "payment-voucher-books"),
+          product("A5 Receipt Voucher Books", "receipt-voucher-books"),
+        ],
+      },
+      { heading: "ID Cards", items: [product("ID Cards", "id-cards")] },
       { heading: "Stamps", items: [product("Custom Rubber Stamps", "rubber-stamps")] },
     ],
   },
@@ -112,23 +113,23 @@ export const megaMenuTabs: MenuTab[] = [
         heading: "Stickers/Labels",
         items: [
           product("Vinyl Labels", "product-labels"),
-          quote("Paper Labels"),
+          product("Waterproof Plastic Stickers", "waterproof-plastic-stickers"),
+          product("Paper Labels", "paper-labels"),
           quote("Roll Labels"),
         ],
       },
-      { heading: "CD/DVD Jackets", items: [quote("CD/DVD Jackets")] },
       {
         heading: "Books & Booklets",
         items: [
           product("Saddle-Stitch Booklets", "saddle-stitch-booklets"),
-          quote("Perfect Bound Booklets"),
+          product("Perfect Bound Booklets", "perfect-bound-booklets"),
           quote("Self-Cover Booklets"),
-          quote("Hardcover Booklets"),
+          product("Hard Cover Books", "hard-cover-books"),
         ],
       },
       {
         heading: "Notepads/Notebooks",
-        items: [product("Standard", "desk-notepads"), quote("Premium")],
+        items: [product("Notepad with Cover", "desk-notepads")],
       },
       {
         heading: "Calendars & Planners",
@@ -140,11 +141,10 @@ export const megaMenuTabs: MenuTab[] = [
       },
       {
         heading: "Tags/Bookmarks",
-        items: [product("Standard", "product-hang-tags"), quote("Premium")],
+        items: [product("Tags", "product-hang-tags"), product("Tags – Premium Material", "premium-hang-tags")],
       },
-      { heading: "Tablemats", items: [product("Standard", "table-tent-cards"), quote("Special offers")] },
-      { heading: "Menu", items: [product("Standard", "restaurant-menus"), quote("Premium")] },
-      { heading: "Print and Play", items: [quote("Print and Play")] },
+      { heading: "Table Tent Cards", items: [product("Table Tent Cards", "table-tent-cards")] },
+      { heading: "Menus", items: [product("Menus", "restaurant-menus")] },
     ],
   },
   {
@@ -157,33 +157,39 @@ export const megaMenuTabs: MenuTab[] = [
         heading: "Posters & Banners",
         items: [
           product("Posters", "event-posters-a2"),
-          quote("3M Vinyl Graphics"),
-          product("One Way Vision Film", "window-graphics"),
           quote("Flex Banners"),
+          quote("Vinyl Banners"),
+          quote("3M Vinyl Graphics"),
           product("Backlit Prints", "backlit-fabric-banners"),
+          quote("Promotional Banners"),
+          quote("Event Banners"),
+          quote("Outdoor Banners"),
           quote("Whiteboard Film"),
         ],
       },
+      { heading: "One-Way Vision", items: [product("One Way Vision Film", "window-graphics")] },
+      { heading: "Window & Vinyl Graphics", items: [product("Window & Vinyl Graphics", "window-graphics")] },
       { heading: "Wallpapers", items: [product("Wall Murals", "wall-murals")] },
       {
         heading: "Canvas Printing",
-        items: [product("Canvas Prints", "large-canvas-prints"), quote("Canvas With Frame")],
+        items: [product("Canvas Prints", "large-canvas-prints"), quote("Canvas With Frame"), quote("Custom Wall Art")],
       },
       {
         heading: "Rollups",
         items: [
-          product("Standard", "roll-up-banners"),
-          quote("Premium"),
-          product("X-Stand Banner", "x-banner-stands"),
+          product("Standard Roll-Ups", "roll-up-banners"),
+          quote("Premium Roll-Ups"),
+          quote("Double-Sided Roll-Ups"),
+          product("X-Stand Banners", "x-banner-stands"),
         ],
       },
       {
         heading: "Popups",
         items: [
-          product("Pop-Up Display Straight", "pop-up-displays"),
-          quote("Pop-Up Display Curved"),
-          quote("Pop-Up Display Counter"),
-          quote("Promotional table"),
+          product("Straight Pop-Up Displays", "pop-up-displays"),
+          quote("Curved Pop-Up Displays"),
+          quote("Pop-Up Counters"),
+          quote("Promotional Tables & Displays"),
         ],
       },
       {
@@ -191,6 +197,7 @@ export const megaMenuTabs: MenuTab[] = [
         items: [
           product("Acrylic Sign Holders", "acrylic-signage"),
           product("Acrylic Name Plates & Desk Stands", "office-door-signs"),
+          quote("Display Holders"),
         ],
       },
     ],
@@ -209,6 +216,29 @@ export const megaMenuTabs: MenuTab[] = [
           product("Corrugated Shipping Boxes", "corrugated-shipping-boxes"),
           product("Gift Boxes", "gift-boxes"),
           product("Food Packaging Boxes", "food-packaging-boxes"),
+        ],
+      },
+      {
+        heading: "Specialty Boxes",
+        items: [
+          quote("Fancy Gift Sets"),
+          quote("Cube Boxes"),
+          quote("Soft Boxes"),
+          quote("Dates & Specialty Boxes"),
+        ],
+      },
+      {
+        heading: "Food & Drink Packaging",
+        items: [
+          quote("Pizza Boxes"),
+          quote("Burger Boxes"),
+          quote("Meal Boxes"),
+          quote("Takeaway Boxes"),
+          quote("Bakery Boxes"),
+          quote("Cake Boxes"),
+          quote("Dessert Boxes"),
+          quote("Food Sleeves"),
+          quote("Paper Cups (4–12 oz)"),
         ],
       },
       {
@@ -249,6 +279,9 @@ export const megaMenuTabs: MenuTab[] = [
         items: [
           product("Ceramic Mugs", "ceramic-mugs"),
           product("Water Bottles", "branded-water-bottles"),
+          quote("Travel Mugs & Tumblers"),
+          quote("Glassware"),
+          quote("Tea Coasters"),
         ],
       },
       {
@@ -256,6 +289,8 @@ export const megaMenuTabs: MenuTab[] = [
         items: [
           product("Branded Pens", "branded-pens"),
           product("Notebooks", "branded-notebooks"),
+          quote("Diaries & Agendas"),
+          quote("Business Card Cases"),
         ],
       },
       {
@@ -264,7 +299,12 @@ export const megaMenuTabs: MenuTab[] = [
           product("USB Drives", "usb-drives"),
           product("Power Banks", "branded-power-banks"),
           product("Mousepads", "custom-mousepads"),
+          quote("Mobile Accessories"),
         ],
+      },
+      {
+        heading: "Fun & Giveaways",
+        items: [quote("Pillows"), quote("Stress Balls"), quote("Balloons"), quote("Ribbons")],
       },
       {
         heading: "Outdoor & Events",
@@ -295,6 +335,7 @@ export const megaMenuTabs: MenuTab[] = [
           product("Branded Abayas", "branded-abayas"),
           product("Lab Coats", "branded-lab-coats"),
           product("Corporate Ties", "corporate-ties"),
+          quote("Uniform Branding"),
         ],
       },
       {
@@ -330,6 +371,24 @@ export const megaMenuTabs: MenuTab[] = [
         ],
       },
       {
+        heading: "Exhibition Services",
+        items: [quote("Backdrops"), quote("Promotional Counters"), quote("Promotional Tables"), quote("Event Signage")],
+      },
+      {
+        heading: "Promotional Bags",
+        items: [
+          product("Paper Bags", "branded-paper-bags"),
+          quote("Non-Woven Bags"),
+          quote("Cotton Bags"),
+          quote("Drawstring Bags"),
+          quote("Promotional Gift Bags"),
+        ],
+      },
+      {
+        heading: "Awards & Memories",
+        items: [quote("Trophy Awards & Mementos"), quote("Photobooks")],
+      },
+      {
         heading: "Office Signage",
         items: [
           product("Acrylic Signage", "acrylic-signage"),
@@ -347,14 +406,217 @@ export const megaMenuTabs: MenuTab[] = [
     ],
   },
   {
+    slug: "signage-branding",
+    categorySlug: "signage-displays",
+    label: "Signage & Branding",
+    image: "/images/categories/signage-displays.webp",
+    sections: [
+      {
+        heading: "Shop & Outdoor",
+        items: [
+          product("Shop Signage", "light-box-signs"),
+          product("LED Sign Boards", "custom-led-neon-signs"),
+          quote("3D Letter Signage"),
+          product("Illuminated Signs", "light-box-signs"),
+          quote("Outdoor Signage"),
+          product("A-Frame Signs", "a-frame-pavement-signs"),
+        ],
+      },
+      {
+        heading: "Office & Indoor",
+        items: [
+          product("Acrylic Signage", "acrylic-signage"),
+          quote("Stainless Steel Signage"),
+          quote("Reception Signs"),
+          product("Office Signs", "office-door-signs"),
+          product("Door Signs", "door-hangers"),
+          quote("Indoor Signage"),
+          quote("Menu Boards"),
+        ],
+      },
+      {
+        heading: "Parking & Directions",
+        items: [product("Parking Signs", "parking-signage"), quote("Directional Signs")],
+      },
+      {
+        heading: "Walls, Glass & Vehicles",
+        items: [
+          product("Wall Branding", "wall-murals"),
+          product("Glass Branding", "window-graphics"),
+          product("Window Graphics", "window-graphics"),
+          product("Vehicle Branding", "vehicle-wraps"),
+        ],
+      },
+    ],
+  },
+  {
+    slug: "restaurants-cafes",
+    label: "Restaurants & Cafés",
+    image: "/images/categories/packaging-labels.webp",
+    sections: [
+      {
+        heading: "Menus & Table Display",
+        items: [
+          product("Menus", "restaurant-menus"),
+          product("Table Tent Cards", "table-tent-cards"),
+          quote("Table Mats"),
+          quote("Takeaway Menus"),
+        ],
+      },
+      {
+        heading: "Food Packaging",
+        items: [
+          product("Food Packaging Boxes", "food-packaging-boxes"),
+          quote("Pizza & Burger Boxes"),
+          quote("Paper Cups"),
+          product("Stickers & Labels", "product-labels"),
+        ],
+      },
+      {
+        heading: "Print & Promotion",
+        items: [
+          product("Business Cards", "standard-business-cards"),
+          product("Flyers", "a5-flyers"),
+          product("Posters", "event-posters-a2"),
+          product("Wall Graphics", "wall-murals"),
+          quote("Outdoor Signage"),
+          quote("Promotional Materials"),
+        ],
+      },
+      {
+        heading: "Café Branding",
+        items: [
+          product("Window Graphics", "window-graphics"),
+          product("Acrylic Signage", "acrylic-signage"),
+          quote("Café Branding"),
+        ],
+      },
+    ],
+  },
+  {
+    slug: "custom-printing",
+    label: "Custom Printing",
+    image: "/images/categories/business-stationery.webp",
+    sections: [
+      { heading: "Size & Material", items: [quote("Custom Sizes"), quote("Custom Materials"), quote("Custom Shapes")] },
+      { heading: "Packaging & Branding", items: [quote("Custom Packaging"), quote("Custom Branding"), quote("Custom Signage")] },
+      {
+        heading: "Products & Gifts",
+        items: [quote("Custom Promotional Products"), quote("Custom Corporate Gifts"), quote("Custom Event Products")],
+      },
+    ],
+  },
+  {
+    slug: "corporate-gifts",
+    label: "Corporate Gifts",
+    image: "/images/categories/promotional-gifts.webp",
+    sections: [
+      { heading: "Gift Sets", items: [quote("Gift Sets"), quote("Executive Gift Sets"), product("Gift Boxes", "gift-boxes")] },
+      {
+        heading: "Drinkware",
+        items: [product("Mugs", "ceramic-mugs"), quote("Tumblers"), product("Bottles", "branded-water-bottles")],
+      },
+      {
+        heading: "Office & Tech",
+        items: [
+          quote("Diaries"),
+          product("Pens", "branded-pens"),
+          product("Power Banks", "branded-power-banks"),
+          product("USB Drives", "usb-drives"),
+        ],
+      },
+      {
+        heading: "Holders & Bags",
+        items: [
+          product("Keychains", "custom-keychains"),
+          quote("Card Holders"),
+          quote("Business Card Holders"),
+          product("Bags", "branded-paper-bags"),
+          quote("Promotional Accessories"),
+        ],
+      },
+    ],
+  },
+  {
+    slug: "event-printing",
+    label: "Event Printing",
+    image: "/images/categories/marketing-print.webp",
+    sections: [
+      {
+        heading: "Invitations & Papers",
+        items: [
+          product("Invitations", "invitation-cards-standard"),
+          product("Posters", "event-posters-a2"),
+          product("Menus", "restaurant-menus"),
+          quote("Table Mats"),
+          product("Certificates", "certificates-standard"),
+        ],
+      },
+      {
+        heading: "Backdrops & Signage",
+        items: [
+          quote("Event Backdrops"),
+          quote("Photo Booth Backdrops"),
+          quote("Welcome Boards"),
+          quote("Event Signage"),
+          product("Banners", "mesh-banners"),
+        ],
+      },
+      {
+        heading: "Badges & Tables",
+        items: [
+          product("Name Badges", "event-lanyards-badges"),
+          product("ID Cards", "id-cards"),
+          product("Lanyards", "event-lanyards-badges"),
+          product("Table Numbers", "table-tent-cards"),
+        ],
+      },
+      {
+        heading: "Giveaways & Awards",
+        items: [quote("Promotional Giveaways"), quote("Awards & Trophies")],
+      },
+    ],
+  },
+  {
+    slug: "photo-products",
+    label: "Photo Products",
+    image: "/images/categories/large-format.webp",
+    sections: [
+      {
+        heading: "Photobooks & Albums",
+        items: [quote("Photobooks"), quote("Hardcover Photobooks"), quote("Photo Albums")],
+      },
+      {
+        heading: "Canvas & Wall Art",
+        items: [product("Canvas Prints", "large-canvas-prints"), quote("Framed Canvas"), product("Wall Art", "wall-murals")],
+      },
+      { heading: "Gifts", items: [quote("Personalized Photo Gifts")] },
+    ],
+  },
+  {
+    slug: "design-services",
+    label: "Design Services",
+    image: "/images/categories/marketing-print.webp",
+    sections: [
+      {
+        heading: "Brand",
+        items: [quote("Logo Design"), quote("Brand Identity"), quote("Social Media Design")],
+      },
+      {
+        heading: "Print & Packaging",
+        items: [quote("Packaging Design"), quote("Menu Design"), quote("Print-Ready Artwork")],
+      },
+      { heading: "Video", items: [quote("Motion Graphics"), quote("Video Editing")] },
+    ],
+  },
+  {
     slug: "occasions-industries",
     label: "Occasions & Industries",
     image: "/images/categories/marketing-print.webp",
     sections: [
-      {
-        heading: "Curated Collections",
-        items: [quote("Saudi National Day"), quote("Restaurants"), quote("Saudi Franchise Expo")],
-      },
+      { heading: "Occasions", items: [quote("Saudi National Day"), quote("Saudi Franchise Expo")] },
+      { heading: "Industries", items: [quote("Restaurants")] },
+      { heading: "Special Offers", items: [quote("Special offers")] },
     ],
   },
 ];
