@@ -1,0 +1,135 @@
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/tajawal/400.css";
+@import "@fontsource/tajawal/500.css";
+@import "@fontsource/tajawal/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html[dir="rtl"] {
+  --font-display: "Tajawal", sans-serif;
+  --font-body: "Tajawal", sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7fafb;
+  color: #0e1720;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *:not(.marquee-row) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #17abdd;
+  color: #ffffff;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #17abdd;
+  outline-offset: 3px;
+}
+
+/* halftone dot field used as a quiet textured backdrop */
+.halftone {
+  background-image: radial-gradient(#0b2a40 1px, transparent 1.4px);
+  background-size: 14px 14px;
+}
+
+.halftone-cyan {
+  background-image: radial-gradient(#17abdd 1px, transparent 1.4px);
+  background-size: 14px 14px;
+}
+
+/* auto-floating product rows: continuous slow drift, pauses on hover/touch */
+.marquee-row {
+  animation-name: marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.marquee-row:hover,
+.marquee-row:active,
+.marquee-row:focus-within {
+  animation-play-state: paused;
+}
+
+.marquee-row.marquee-reverse {
+  animation-direction: reverse;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* premium (luxe) product pages */
+.foil-text {
+  background-image: linear-gradient(100deg, #f4dfae 0%, #c9a45c 35%, #f7e8c0 55%, #b98f43 80%, #f4dfae 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: foil-flow 7s linear infinite;
+}
+.foil-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 238, 190, 0.38) 50%, transparent 65%);
+  transform: translateX(-120%);
+  animation: foil-sweep 5.5s ease-in-out infinite;
+}
+@keyframes foil-flow {
+  to { background-position: 200% center; }
+}
+@keyframes foil-sweep {
+  0%, 55% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* hero photo fallback: slow zoom so the section is never static */
+.hero-kenburns { animation: kenburns 24s ease-in-out infinite alternate; }
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .foil-text,
+  .foil-sheen,
+  .hero-kenburns {
+    animation: none;
+  }
+}
+
+/* hide scrollbars on horizontally-scrollable rows while keeping them scrollable */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
