@@ -18,7 +18,7 @@ export default function ProductCard({ product }: { product: Product }) {
       href={`/products/${product.slug}`}
       className="group focus-ring relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_rgba(11,42,64,0.12)]"
     >
-      <div className="relative h-36 overflow-hidden bg-mist sm:h-44">
+      <div className="relative aspect-[4/3] overflow-hidden bg-mist">
         <CornerBadge />
         {(product.newArrival || product.premium) && (
           <span className="absolute left-3 top-3 z-10 rounded-pill bg-navy/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">

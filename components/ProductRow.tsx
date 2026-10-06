@@ -31,7 +31,7 @@ export default function ProductRow({
           style={{ animationDuration: `${duration}s` }}
         >
           {looped.map((p, i) => (
-            <div key={`${p.slug}-${i}`} className="h-[340px] w-[210px] flex-shrink-0 sm:h-[360px] sm:w-[260px]">
+            <div key={`${p.slug}-${i}`} className="h-[350px] w-[250px] flex-shrink-0 sm:h-[410px] sm:w-[310px]">
               <ProductCard product={p} />
             </div>
           ))}

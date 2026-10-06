@@ -29,6 +29,8 @@ export interface Product {
   unit: string;
   minQty: number;
   photo?: string;
+  /** Extra pictures shown under the main one on the product page. */
+  gallery?: string[];
   options: ProductOption[];
   specs: { label: string; value: string }[];
   featured?: boolean;
@@ -2069,6 +2071,7 @@ const baseProducts: Product[] = [
   },
   {
     slug: "vinyl-sticker-printing",
+    photo: "/images/products/vinyl-sticker-printing.webp",
     category: "signage-displays",
     name: "Vinyl Sticker Printing",
     nameAr: "طباعة ملصقات فينيل",

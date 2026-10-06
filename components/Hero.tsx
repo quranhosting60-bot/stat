@@ -20,11 +20,11 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10">
         <div className="hero-kenburns absolute inset-0">
           <Image
-            src="/images/products/standee-cutouts.webp"
+            src="/images/hero-banner.webp"
             alt=""
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-[72%_center] sm:object-center"
             priority
           />
         </div>
@@ -43,7 +43,8 @@ export default function Hero() {
           <source src="/videos/hero.webm" type="video/webm" />
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/75 to-navy-deep/25" />
+        {/* the banner already has a dark left side for the text; phones get an extra veil for readability */}
+        <div className="absolute inset-0 bg-navy-deep/55 sm:bg-gradient-to-r sm:from-navy-deep/50 sm:via-navy-deep/10 sm:to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-deep/80 to-transparent" />
       </div>
 

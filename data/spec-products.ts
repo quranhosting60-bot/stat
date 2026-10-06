@@ -345,7 +345,7 @@ export const specProducts: SpecProduct[] = [
   {
     slug: "invitation-cards-standard",
     category: "business-stationery",
-    photo: "/images/products/thank-you-insert-cards.webp",
+    photo: "/images/products/invitation-cards-standard.webp",
     name: "Invitation Cards — Standard (Digital)",
     nameAr: "بطاقات دعوة (طباعة رقمية)",
     shortDescription: "Digitally printed invitations from A7 to A4.",
@@ -389,8 +389,8 @@ export const specProducts: SpecProduct[] = [
   /* ================= Invoice / voucher books ================= */
   ...[
     { slug: "ncr-invoice-books", name: "A4 Invoice Books", ar: "دفاتر فواتير A4", base: 55, size: "A4", desc: "A4 invoice books printed 4-colour offset on both sides, with sequence numbering and coloured copies.", photo: "ncr-invoice-books" },
-    { slug: "payment-voucher-books", name: "A5 Payment Voucher Books", ar: "دفاتر سندات صرف A5", base: 38, size: "A5", desc: "A5 payment voucher books printed 4-colour offset, with sequence numbering and coloured copies.", photo: "ncr-invoice-books" },
-    { slug: "receipt-voucher-books", name: "A5 Receipt Voucher Books", ar: "دفاتر سندات قبض A5", base: 38, size: "A5", desc: "A5 receipt voucher books printed 4-colour offset, with sequence numbering and coloured copies.", photo: "ncr-invoice-books" },
+    { slug: "payment-voucher-books", name: "A5 Payment Voucher Books", ar: "دفاتر سندات صرف A5", base: 38, size: "A5", desc: "A5 payment voucher books printed 4-colour offset, with sequence numbering and coloured copies.", photo: "payment-voucher-books" },
+    { slug: "receipt-voucher-books", name: "A5 Receipt Voucher Books", ar: "دفاتر سندات قبض A5", base: 38, size: "A5", desc: "A5 receipt voucher books printed 4-colour offset, with sequence numbering and coloured copies.", photo: "receipt-voucher-books" },
   ].map(
     (b): SpecProduct => ({
       slug: b.slug,
@@ -426,7 +426,7 @@ export const specProducts: SpecProduct[] = [
   {
     slug: "waterproof-plastic-stickers",
     category: "packaging-labels",
-    photo: "/images/products/product-labels.webp",
+    photo: "/images/products/waterproof-plastic-stickers.webp",
     name: "Waterproof Plastic Stickers",
     nameAr: "ملصقات بلاستيك مقاومة للماء",
     shortDescription: "Durable waterproof stickers incl. 3M films.",

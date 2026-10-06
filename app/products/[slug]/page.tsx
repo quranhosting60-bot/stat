@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
+import ProductGallery from "@/components/ProductGallery";
 import { products, getProduct } from "@/data/products";
 import { getCategory } from "@/data/categories";
 import AddToCartForm from "@/components/AddToCartForm";
@@ -45,21 +45,11 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         }`}
       >
         <Reveal>
-          <div
-            className={`foil-frame relative aspect-square overflow-hidden rounded-3xl bg-mist ${
-              luxe ? "border-2 border-[#c9a45c]/70 shadow-[0_0_0_6px_rgba(201,164,92,0.12)]" : "border border-line"
-            }`}
-          >
-            <Image
-              src={product.photo ?? category.photo}
-              alt={product.name}
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover transition-transform duration-500 hover:scale-105"
-              priority
-            />
-            {luxe && <span className="foil-sheen" aria-hidden />}
-          </div>
+          <ProductGallery
+            images={[product.photo ?? category.photo, ...(product.gallery ?? [])]}
+            alt={product.name}
+            luxe={luxe}
+          />
           <div className="mt-6 grid grid-cols-3 gap-3">
             {product.specs.map((spec, i) => (
               <Reveal key={spec.label} delay={0.1 + i * 0.06} y={10}>
