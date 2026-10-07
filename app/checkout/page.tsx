@@ -65,7 +65,7 @@ export default function CheckoutPage() {
         </p>
       </Reveal>
 
-      <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_1fr]">
+      <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr]">
         <Reveal delay={0.08}>
           <form onSubmit={handleSubmit} className="space-y-5 rounded-3xl border border-line bg-white p-6">
           <div>

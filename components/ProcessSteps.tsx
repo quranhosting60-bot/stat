@@ -32,7 +32,7 @@ export default function ProcessSteps() {
           Simple. Fast. Professional.
         </h2>
       </Reveal>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((step, i) => (
           <Reveal key={step.number} delay={i * 0.08}>
             <div className="relative h-full rounded-3xl border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,64,0.1)]">

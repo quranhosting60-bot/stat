@@ -57,7 +57,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
   // Theme tokens — gold-on-dark for premium-range products.
   const t = luxe
     ? {
-        card: "rounded-3xl border border-[#c9a45c]/35 bg-[#0a1822]/80 p-6 text-white backdrop-blur",
+        card: "rounded-3xl border border-[#c9a45c]/35 bg-[#0a1822]/80 p-4 text-white backdrop-blur sm:p-6",
         label: "text-white",
         heading: "text-[#e9cf93]",
         pill: "border-white/15 bg-transparent text-white/70 hover:bg-white/10",
@@ -72,7 +72,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
         total: "text-white",
       }
     : {
-        card: "rounded-3xl border border-line bg-white p-6",
+        card: "rounded-3xl border border-line bg-white p-4 sm:p-6",
         label: "text-navy",
         heading: "text-cyan-deep",
         pill: "border-line bg-white text-navy/70 hover:bg-mist",
@@ -199,7 +199,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
                   <select
                     value={value}
                     onChange={(e) => setValue(opt, e.target.value)}
-                    className={`focus-ring w-full rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
+                    className={`focus-ring w-full min-w-0 rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
                   >
                     {opt.choices.map((c) => (
                       <option key={c.label} value={c.label} className="text-navy">
@@ -257,7 +257,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
               placeholder="Width"
               value={customWidth}
               onChange={(e) => setCustomWidth(e.target.value)}
-              className={`focus-ring w-full rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
+              className={`focus-ring w-full min-w-0 rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
             />
             <span className={t.muted}>×</span>
             <input
@@ -266,7 +266,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
               placeholder="Height"
               value={customHeight}
               onChange={(e) => setCustomHeight(e.target.value)}
-              className={`focus-ring w-full rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
+              className={`focus-ring w-full min-w-0 rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
             />
           </div>
           <p className={`mt-1.5 text-xs ${t.muted}`}>
@@ -299,7 +299,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
           onChange={(e) => setArtworkLink(e.target.value)}
           placeholder="Paste a download link (Google Drive, Dropbox, WeTransfer…)"
           aria-label="Artwork link"
-          className={`focus-ring w-full rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
+          className={`focus-ring w-full min-w-0 rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
         />
         {linkInvalid && <p className="mt-1.5 text-xs text-red-400">Please enter a full link starting with https://</p>}
         <p className={`mt-1.5 text-xs ${t.muted}`}>
@@ -317,7 +317,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
           value={memo}
           onChange={(e) => setMemo(e.target.value)}
           maxLength={200}
-          className={`focus-ring w-full rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
+          className={`focus-ring w-full min-w-0 rounded-2xl border px-4 py-2.5 text-sm ${t.field}`}
         />
       </div>
 
@@ -356,7 +356,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
         </div>
       </div>
 
-      <div className={`flex items-center justify-between border-t pt-5 ${t.divider}`}>
+      <div className={`flex flex-wrap items-center justify-between gap-3 border-t pt-5 ${t.divider}`}>
         <div>
           <p className={`text-xs ${t.muted}`}>Estimated total</p>
           <p className={`font-display text-2xl font-semibold ${t.total}`}>
@@ -366,7 +366,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
         <button
           onClick={handleAdd}
           disabled={linkInvalid}
-          className={`focus-ring rounded-pill px-6 py-3 text-sm font-semibold transition-colors disabled:opacity-50 ${t.cta}`}
+          className={`focus-ring rounded-pill px-6 py-3 text-sm font-semibold transition-colors disabled:opacity-50 max-[420px]:w-full ${t.cta}`}
         >
           {added ? "Added ✓" : "Add to cart"}
         </button>

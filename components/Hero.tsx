@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -14,6 +14,31 @@ const trustPoints = ["7 product categories", "100+ products", "Delivery across S
  */
 export default function Hero() {
   const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // The clip is small and often finishes loading BEFORE React attaches its
+  // onLoadedData handler, so that event can be missed and the video would stay
+  // hidden forever. Check the current state on mount, listen for several events,
+  // and start playback explicitly (autoplay needs muted set on the element).
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const ready = () => setVideoReady(true);
+    v.muted = true;
+    v.defaultMuted = true;
+    if (v.readyState >= 2) ready();
+    v.addEventListener("loadeddata", ready);
+    v.addEventListener("canplay", ready);
+    v.addEventListener("playing", ready);
+    v.play().catch(() => {
+      /* blocked (e.g. iOS Low Power Mode): the banner picture stays visible */
+    });
+    return () => {
+      v.removeEventListener("loadeddata", ready);
+      v.removeEventListener("canplay", ready);
+      v.removeEventListener("playing", ready);
+    };
+  }, []);
 
   return (
     <section className="relative isolate -mt-[78px] overflow-hidden rounded-b-[2.5rem] bg-navy-deep">
@@ -29,7 +54,9 @@ export default function Hero() {
           />
         </div>
         <video
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 motion-reduce:hidden ${
+          ref={videoRef}
+          poster="/images/hero-banner.webp"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
             videoReady ? "opacity-100" : "opacity-0"
           }`}
           autoPlay
@@ -38,13 +65,12 @@ export default function Hero() {
           playsInline
           preload="auto"
           aria-hidden="true"
-          onLoadedData={() => setVideoReady(true)}
         >
           <source src="/videos/hero.webm" type="video/webm" />
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
         {/* the banner already has a dark left side for the text; phones get an extra veil for readability */}
-        <div className="absolute inset-0 bg-navy-deep/55 sm:bg-gradient-to-r sm:from-navy-deep/50 sm:via-navy-deep/10 sm:to-transparent" />
+        <div className="absolute inset-0 bg-navy-deep/60 sm:bg-gradient-to-r sm:from-navy-deep/50 sm:via-navy-deep/10 sm:to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-deep/80 to-transparent" />
       </div>
 

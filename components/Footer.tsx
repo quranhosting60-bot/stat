@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="mt-24 border-t border-line bg-navy text-white">
       <div className="mx-auto max-w-content px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="flex items-center gap-2">
               <Image src="/images/logo.png" alt="Smart Printing" width={40} height={40} className="h-10 w-10 object-contain" />

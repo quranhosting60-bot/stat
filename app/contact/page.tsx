@@ -6,7 +6,7 @@ export const metadata = { title: "Contact — Smart Printing" };
 export default function ContactPage() {
   return (
     <div className="mx-auto max-w-content px-6 py-14">
-      <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
           <p className="text-sm font-medium text-cyan-deep">Get in touch</p>
           <h1 className="mt-2 font-display text-4xl font-semibold text-navy">

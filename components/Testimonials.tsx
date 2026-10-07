@@ -30,7 +30,7 @@ export default function Testimonials() {
             What clients say after the second order
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {quotes.map((q, i) => (
             <Reveal key={q.name} delay={i * 0.08}>
               <figure className="h-full rounded-3xl border border-line bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,64,0.08)]">

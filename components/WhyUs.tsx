@@ -15,7 +15,7 @@ export default function WhyUs() {
       <Reveal>
         <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">Why choose us</h2>
       </Reveal>
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {reasons.map((r, i) => (
           <Reveal key={r.title} delay={i * 0.06}>
             <div className="h-full rounded-3xl border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,64,0.1)]">

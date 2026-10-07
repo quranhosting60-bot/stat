@@ -23,7 +23,7 @@ export default function AboutPage() {
         </p>
       </Reveal>
 
-      <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((cat, i) => (
           <Reveal key={cat.slug} delay={i * 0.06}>
             <div className="overflow-hidden rounded-3xl border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,64,0.1)]">

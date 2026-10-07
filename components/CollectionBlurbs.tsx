@@ -19,7 +19,7 @@ export default function CollectionBlurbs({ blurbs, heading }: { blurbs: Blurb[];
   return (
     <section>
       {heading && <h2 className="font-display text-xl font-semibold text-navy">{heading}</h2>}
-      <div className={`mt-5 grid gap-4 ${blurbs.length > 1 ? "sm:grid-cols-2 lg:grid-cols-3" : ""}`}>
+      <div className={`mt-5 grid grid-cols-1 gap-4 ${blurbs.length > 1 ? "sm:grid-cols-2 lg:grid-cols-3" : ""}`}>
         {blurbs.map((b, i) => (
           <Reveal key={b.title} delay={Math.min(i * 0.04, 0.3)}>
             <div className="h-full rounded-3xl border border-line bg-white p-5">

@@ -34,7 +34,7 @@ export default function CartPage() {
         <h1 className="font-display text-3xl font-semibold text-navy">Your cart</h1>
       </Reveal>
 
-      <div className="mt-8 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
+      <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[1.6fr_1fr]">
         <div className="space-y-4">
           <AnimatePresence initial={false}>
             {items.map((item) => (

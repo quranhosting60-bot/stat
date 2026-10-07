@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
+import { thumbOf } from "@/lib/images";
 
 /**
  * Large product picture. Click / tap it to open the full-size picture in a
@@ -60,14 +60,20 @@ export default function ProductGallery({
           luxe ? "border-2 border-[#c9a45c]/70 shadow-[0_0_0_6px_rgba(201,164,92,0.12)]" : "border border-line"
         }`}
       >
-        <Image
-          src={images[index]}
-          alt={alt}
-          fill
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-          priority
-        />
+        <picture>
+          {/* phones get the small file; desktop gets the full-size one */}
+          <source media="(max-width: 767px)" srcSet={thumbOf(images[index])} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={images[index]}
+            alt={alt}
+            width={1536}
+            height={1024}
+            decoding="async"
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </picture>
         {luxe && <span className="foil-sheen" aria-hidden />}
         <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-pill bg-navy/80 px-3 py-1.5 text-xs font-medium text-white backdrop-blur">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -89,7 +95,8 @@ export default function ProductGallery({
                 i === index ? "border-cyan" : "border-transparent opacity-70 hover:opacity-100"
               }`}
             >
-              <Image src={src} alt="" fill sizes="120px" className="object-cover" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={thumbOf(src)} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
             </button>
           ))}
         </div>
